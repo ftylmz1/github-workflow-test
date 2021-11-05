@@ -12,6 +12,11 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      environment:
+        description: 'ENVIRONMENT'
+        required: true
+        default: 'dev'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -19,6 +24,12 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    
+    environment:
+      name: ${{ inputs.environment }}
+    
+    env:
+      ENV_ID: ${{ secrets.ENV_ID }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -34,3 +45,4 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          echo "ENV ID: $ENV_ID"
