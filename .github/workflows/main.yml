@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     
     environment:
-      name: dev
+      name: ${{ inputs.environment }}
     
     env:
       ENV_ID: ${{ secrets.ENV_ID }}
