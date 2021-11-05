@@ -13,8 +13,8 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
     inputs:
-      environment:
-        description: 'ENVIRONMENT'
+      cbs:
+        description: 'CBS'
         required: true
         default: 'dev'
 
@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     
     environment:
-      name: ${{ inputs.environment }}
+      name: ${{ inputs.cbs }}
     
     env:
       ENV_ID: ${{ secrets.ENV_ID }}
@@ -49,4 +49,4 @@ jobs:
           echo "ENV ID: $ENV_ID"
           echo "ENV TEST: $ENV_TEST"
           echo "ENV ID AND TEST: $ENV_ID $ENV_TEST"
-          echo "FOO: ${{inputs.environment}}"
+          echo "FOO: ${{inputs.cbs}}"
