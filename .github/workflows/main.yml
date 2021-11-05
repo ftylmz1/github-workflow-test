@@ -48,3 +48,4 @@ jobs:
           echo test, and deploy your project.
           echo "ENV ID: $ENV_ID"
           echo "ENV TEST: $ENV_TEST"
+          echo "ENV ID AND TEST: $ENV_ID $ENV_TEST"
