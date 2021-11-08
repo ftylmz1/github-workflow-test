@@ -35,7 +35,7 @@ jobs:
     if: ${{ github.event.inputs.redeploy == 'true' }}
     
     environment:
-      name: ${{ github.event.inputs.environment }}
+      name: dev
     
     env:
       ENV_ID: ${{ secrets.ENV_ID }}
