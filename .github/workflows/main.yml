@@ -71,3 +71,4 @@ jobs:
         run: |
           export ENV_SOLUTION_PATH=${{ secrets.SOLUTION_PATH }}
           echo "$ENV_SOLUTION_PATH"
+          env
