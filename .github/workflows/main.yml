@@ -18,9 +18,13 @@ on:
         required: true
         default: 'true'
       cbs:
-        description: 'CBS'
+        description: 'ENVIRONMENT'
         required: true
         default: 'dev'
+      environment:
+        description: 'CBS'
+        required: true
+        default: 'testcbs'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -28,16 +32,16 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    
     if: ${{ github.event.inputs.redeploy == 'true' }}
     
     environment:
-      name: dev
+      name: ${{ github.event.inputs.environment }}
     
     env:
       ENV_ID: ${{ secrets.ENV_ID }}
       ENV_TEST: "FTYLMZ"
-      TEST_TEST: ${{ inputs.cbs }}
+      TEST_ENVIRONMENT: ${{ github.event.inputs.environment }}
+      TEST_CBS: ${{ github.event.inputs.cbs }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -56,6 +60,7 @@ jobs:
           echo "ENV ID: $ENV_ID"
           echo "ENV TEST: $ENV_TEST"
           echo "ENV ID AND TEST: $ENV_ID $ENV_TEST"
-          echo "FOO: ${{ inputs.cbs }}"
-          echo "FOO: $INPUTS_CBS"
-          echo "FOO: $TEST_TEST"
+          echo "FOO 1: ${{ github.event.inputs.environment }}"
+          echo "FOO 2: ${{ github.event.inputs.cbs }}"
+          echo "FOO: $TEST_ENVIRONMENT"
+          echo "FOO: $TEST_CBS"
