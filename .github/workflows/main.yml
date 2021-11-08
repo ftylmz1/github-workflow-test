@@ -18,13 +18,13 @@ on:
         required: true
         default: 'true'
       cbs:
-        description: 'ENVIRONMENT'
-        required: true
-        default: 'dev'
-      environment:
         description: 'CBS'
         required: true
         default: 'testcbs'
+      environment:
+        description: 'ENVIRONMENT'
+        required: true
+        default: 'dev'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -60,10 +60,10 @@ jobs:
           echo "ENV ID: $ENV_ID"
           echo "ENV TEST: $ENV_TEST"
           echo "ENV ID AND TEST: $ENV_ID $ENV_TEST"
-          echo "FOO 1: ${{ github.event.inputs.environment }}"
-          echo "FOO 2: ${{ github.event.inputs.cbs }}"
-          echo "FOO: $TEST_ENVIRONMENT"
-          echo "FOO: $TEST_CBS"
+          echo "INPUTS - TEST_ENVIRONMENT: ${{ github.event.inputs.environment }}"
+          echo "INPUTS - TEST_ENVIRONMENT: ${{ github.event.inputs.cbs }}"
+          echo "ENV - TEST_ENVIRONMENT: $TEST_ENVIRONMENT"
+          echo "ENV - TEST_CBS: $TEST_CBS"
       # Print all ENV out
       - name: Print all env out
         run: env
