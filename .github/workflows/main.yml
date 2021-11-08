@@ -64,3 +64,6 @@ jobs:
           echo "FOO 2: ${{ github.event.inputs.cbs }}"
           echo "FOO: $TEST_ENVIRONMENT"
           echo "FOO: $TEST_CBS"
+      # Print all ENV out
+      - name: Print all env out
+        run: env
