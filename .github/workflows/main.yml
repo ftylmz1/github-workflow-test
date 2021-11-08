@@ -49,4 +49,5 @@ jobs:
           echo "ENV ID: $ENV_ID"
           echo "ENV TEST: $ENV_TEST"
           echo "ENV ID AND TEST: $ENV_ID $ENV_TEST"
-          echo "FOO: ${{inputs.cbs}}"
+          echo "FOO: ${{ inputs.cbs }}"
+          echo "FOO: $INPUTS_CBS"
