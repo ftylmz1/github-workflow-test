@@ -72,3 +72,5 @@ jobs:
           export ENV_SOLUTION_PATH=${{ secrets.SOLUTION_PATH }}
           echo "$ENV_SOLUTION_PATH"
           env
+          ls -l $GITHUB_WORKSPACE
+          ls -l $GITHUB_WORKSPACE/$SOLUTION_PATH
