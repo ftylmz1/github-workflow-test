@@ -57,8 +57,10 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          echo "ENV ID: $ENV_ID"
-          echo "ENV TEST: $ENV_TEST"
+          echo "ENV - ENV ID: $ENV_ID"
+          echo "ENV - ENV TEST: $ENV_TEST"
+          echo "SECRETS - ENV ID: ${{ secrets.ENV_ID }}"
+          echo "SECRETS - ENV TEST:${{ secrets.ENV_TEST }}"
           echo "ENV ID AND TEST: $ENV_ID $ENV_TEST"
           echo "INPUTS - TEST_ENVIRONMENT: ${{ github.event.inputs.environment }}"
           echo "INPUTS - TEST_ENVIRONMENT: ${{ github.event.inputs.cbs }}"
